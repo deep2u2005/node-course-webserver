@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -12,8 +13,8 @@ app.use((req, res, next) => {
     var logInfo = `${now}: method: ${req.method}, path: ${req.url}`;
 
     console.log(logInfo);
-    fs.appendFile('server.log', logInfo + '\n',(err)=>{
-        if(err){
+    fs.appendFile('server.log', logInfo + '\n', (err) => {
+        if (err) {
             console.log('Unable to log to the server');
         }
     });
@@ -54,7 +55,6 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('server is running on port: 3000');
+app.listen(port, () => {
+    console.log('server is running on port: ', port);
 });
-
