@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
-        pageTxt: 'Some about text here',
+        pageTxt: 'About text here',
     });
 });
 
@@ -55,6 +55,12 @@ app.get('/bad', (req, res) => {
     });
 });
 
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle: 'Project Page',
+        pageTxt: 'Project text here',
+    });
+});
 app.listen(port, () => {
     console.log('server is running on port: ', port);
 });
